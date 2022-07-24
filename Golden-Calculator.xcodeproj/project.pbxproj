@@ -13,6 +13,9 @@
 		5C6C1400288DC688007AFC38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C6C13FE288DC688007AFC38 /* Main.storyboard */; };
 		5C6C1402288DC68C007AFC38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C6C1401288DC68C007AFC38 /* Assets.xcassets */; };
 		5C6C1405288DC68C007AFC38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C6C1403288DC68C007AFC38 /* LaunchScreen.storyboard */; };
+		5C6C140D288DC757007AFC38 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C140C288DC757007AFC38 /* DataManager.swift */; };
+		5C6C140F288DC77D007AFC38 /* ArRulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C140E288DC77D007AFC38 /* ArRulerViewController.swift */; };
+		5C6C1411288DC7A5007AFC38 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C1410288DC7A5007AFC38 /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		5C6C1401288DC68C007AFC38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C6C1404288DC68C007AFC38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C6C1406288DC68C007AFC38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C6C140C288DC757007AFC38 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		5C6C140E288DC77D007AFC38 /* ArRulerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArRulerViewController.swift; sourceTree = "<group>"; };
+		5C6C1410288DC7A5007AFC38 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,9 @@
 				5C6C1401288DC68C007AFC38 /* Assets.xcassets */,
 				5C6C1403288DC68C007AFC38 /* LaunchScreen.storyboard */,
 				5C6C1406288DC68C007AFC38 /* Info.plist */,
+				5C6C140C288DC757007AFC38 /* DataManager.swift */,
+				5C6C140E288DC77D007AFC38 /* ArRulerViewController.swift */,
+				5C6C1410288DC7A5007AFC38 /* Constant.swift */,
 			);
 			path = "Golden-Calculator";
 			sourceTree = "<group>";
@@ -139,8 +148,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C6C13FD288DC688007AFC38 /* ViewController.swift in Sources */,
+				5C6C140F288DC77D007AFC38 /* ArRulerViewController.swift in Sources */,
+				5C6C140D288DC757007AFC38 /* DataManager.swift in Sources */,
 				5C6C13F9288DC688007AFC38 /* AppDelegate.swift in Sources */,
 				5C6C13FB288DC688007AFC38 /* SceneDelegate.swift in Sources */,
+				5C6C1411288DC7A5007AFC38 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,10 +300,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 89RMU5BJA5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Golden-Calculator/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Gold;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -302,11 +315,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.golden.calculator.Golden-Calculator";
+				PRODUCT_BUNDLE_IDENTIFIER = com.golden.calculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -316,10 +329,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 89RMU5BJA5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Golden-Calculator/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Gold;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -330,11 +344,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.golden.calculator.Golden-Calculator";
+				PRODUCT_BUNDLE_IDENTIFIER = com.golden.calculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
