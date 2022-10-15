@@ -22,6 +22,7 @@ class ARRulerAdoptor: NSObject, ARSCNViewDelegate {
     
     // Spheres nodes
     var spheres: [SCNNode] = []
+    var lineNodes = [SCNNode]()
     
     // Measurement label
 //    var measurementLabel: UILabel!
@@ -39,7 +40,7 @@ class ARRulerAdoptor: NSObject, ARSCNViewDelegate {
         sceneView.delegate = self
         
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        sceneView.showsStatistics = false
                         
         // Creates a tap handler and then sets it to a constant
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
@@ -72,6 +73,22 @@ class ARRulerAdoptor: NSObject, ARSCNViewDelegate {
         // Makes a new sphere with the created method
         let sphere = newSphere(at: vector)
         
+        if spheres.count >= 2 {
+            // Iterate through spheres array
+            for sphere in spheres {
+                
+                // Remove all spheres
+                sphere.removeFromParentNode()
+            }
+            lineNodes.forEach { line in
+                line.removeFromParentNode()
+            }
+            lineNodes = []
+            
+            // Remove extraneous spheres
+            spheres = []
+        }
+        
         // Checks if there is at least one sphere in the array
         if let first = spheres.first {
             
@@ -79,20 +96,16 @@ class ARRulerAdoptor: NSObject, ARSCNViewDelegate {
             spheres.append(sphere)
 //            measurementLabel.text = "\(sphere.distance(to: first)) inches"
             delegate.onReadMeasurement(measurement: sphere.distance(to: first))
+            let lineNode = CylinderLine(parent: sceneView!.scene.rootNode,
+                                v1: first,
+                                v2: sphere,
+                                radius: 0.005,
+                                radSegmentCount: 16,
+                                color: UIColor(named: "OperatorButtonColor")!)
+            lineNodes.append(lineNode)
+            sceneView.scene.rootNode.addChildNode(lineNode)
             
             // If more that two are present...
-            if spheres.count > 2 {
-                
-                // Iterate through spheres array
-                for sphere in spheres {
-                    
-                    // Remove all spheres
-                    sphere.removeFromParentNode()
-                }
-                
-                // Remove extraneous spheres
-                spheres = [spheres[2]]
-            }
         
         // If there are no spheres...
         } else {
@@ -112,7 +125,7 @@ class ARRulerAdoptor: NSObject, ARSCNViewDelegate {
     func newSphere(at position: SCNVector3) -> SCNNode {
         
         // Creates an SCNSphere with a radius of 0.4
-        let sphere = SCNSphere(radius: 0.01)
+        let sphere = SCNSphere(radius: 0.005)
         
         // Converts the sphere into an SCNNode
         let node = SCNNode(geometry: sphere)
@@ -124,13 +137,20 @@ class ARRulerAdoptor: NSObject, ARSCNViewDelegate {
         let material = SCNMaterial()
         
         // Converts the contents of the PNG file into the material
-        material.diffuse.contents = UIColor.orange
+        material.diffuse.contents = UIColor(named: "OperatorButtonColor")
         
         // Creates realistic shadows around the sphere
         material.lightingModel = .blinn
         
+        
         // Wraps the newly made material around the sphere
         sphere.firstMaterial = material
+        
+
+        
+//        dotGeometry.materials = [material]
+//
+//        let dotNode = SCNNode(geometry: dotGeometry)
         
         // Returns the node to the function
         return node

@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>931516712961-at3n24pa0guos2taldhme6635huhuv95.apps.googleusercontent.com</string>
+	<string>412100680825-rfp1cnpdeh1pv6tm1kpd9b2k0n3iokiu.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.931516712961-at3n24pa0guos2taldhme6635huhuv95</string>
+	<string>com.googleusercontent.apps.412100680825-rfp1cnpdeh1pv6tm1kpd9b2k0n3iokiu</string>
 	<key>API_KEY</key>
-	<string>AIzaSyD_OESqLGohbRzwUIs-xsHUtgOJfk_uL6c</string>
+	<string>AIzaSyAlzmu608rl0HlM6s1H3Rb_2RwyiTXYIXc</string>
 	<key>GCM_SENDER_ID</key>
-	<string>931516712961</string>
+	<string>412100680825</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.golden.calculator</string>
+	<string>gold.calculator</string>
 	<key>PROJECT_ID</key>
-	<string>golden-calculator</string>
+	<string>gold---calculator</string>
 	<key>STORAGE_BUCKET</key>
-	<string>golden-calculator.appspot.com</string>
+	<string>gold---calculator.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:931516712961:ios:2852d9d13b7145473bd800</string>
+	<string>1:412100680825:ios:e56c9c96b748cced8b08a8</string>
 </dict>
 </plist>

@@ -1,38 +1,18 @@
 //
-//  ViewController.swift
-//  iOS-Calculator
+//  OViewController.swift
+//  Silver-Calculator
 //
-//  Created by Daegeon Choi on 2021/01/20.
+//  Created by Hassan on 24/08/2022.
 //
 
+import Foundation
 import UIKit
 import SceneKit
 import ARKit
 
 
-extension UIView {
-    @IBInspectable var isRounded: Bool {
-        get {
-            return false
-        }
-        set {
-            if newValue {
-                self.layer.cornerRadius = self.bounds.width / 2
-            }
-        }
-    }
-    
-    @IBInspectable var CornorRadius: CGFloat {
-        get {
-            return 0
-        }
-        set {
-            self.layer.cornerRadius = newValue
-        }
-    }
-}
+class OViewController: UIViewController {
 
-class ViewController: UIViewController {
 
     //MARK:- IBOutlets
     
@@ -134,9 +114,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         handleCameraPermissison()
-//        self.adopter = ARRulerAdoptor(sceneView: arView, delegate: self)
+        self.adopter = ARRulerAdoptor(sceneView: arView, delegate: self)
         isCameraAuthorized = true
-//        cntAutorizeView.isHidden = true
+        cntAutorizeView.isHidden = true
         dataManager.delegate = self
         lblMeasurement.text = "To measure, Tap on the edges of an object"
 //        self.lblMeasurement.isHidden = true
@@ -145,9 +125,9 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         handleCameraPermissison()
-//        if isCameraAuthorized {
-//            self.adopter.startSession()
-//        }
+        if isCameraAuthorized {
+            self.adopter.startSession()
+        }
     }
     
     func openSetting() {
@@ -165,11 +145,11 @@ class ViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        self.adopter.pauseSession()
+        self.adopter.pauseSession()
     }
     
     func handleCameraPermissison() {
-//        isCameraAuthorized = checkCameraAuthorized()
+//        checkCameraAuthorized()
         AVCaptureDevice.requestAccess(for: .video) { result in
             DispatchQueue.main.async {
                 self.isCameraAuthorized = result
@@ -194,7 +174,7 @@ class ViewController: UIViewController {
 }
 
 //MARK:- View Actions
-extension ViewController: DataManagerDelegate {
+extension OViewController: DataManagerDelegate {
     //MARK: IBActions
     @IBAction func numberPressed(_ sender: UIButton) {
         dataManager.proccessNumber(button: sender, labelText: resultLabel.text!)
@@ -215,7 +195,7 @@ extension ViewController: DataManagerDelegate {
     }
 }
 
-extension ViewController: ArRulerOutput {
+extension OViewController: ArRulerOutput {
     func onReadMeasurement(measurement: CGFloat) {
         self.lblMeasurement.isHidden = false
         self.mesaurement = measurement
