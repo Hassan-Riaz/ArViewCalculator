@@ -95,16 +95,18 @@ class SplashScreenViewController: UIViewController {
                     let variationFactor = data["variationFactor"] as! Int
                     let currentCount = data["currentCount"] as! Int
                     let total = data["total"] as! String
-                    var arr = data["devices"] as! [String]
+                    let arr = data["devices"] as! [String]
                     self.legacyCodeToSupportV1(devices: arr, uuid: uuid)
                     self.lblCount.text = "\(currentCount + variationFactor)/\(total)"
                     userCollection.document(uid).getDocument { userSnapshot, error in
                         
                         if let userSnapshot = userSnapshot, userSnapshot.exists, let data = userSnapshot.data()  {
+                            let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
                             let position = data["position"] as! Int
                             UserDefaults.standard.downloadPosition = position + variationFactor
                             self.setPosition(position: position + variationFactor, total: currentCount + variationFactor)
-                            userCollection.document(uid).updateData(["lastSignInAt": Date()])
+                            userCollection.document(uid).updateData(["lastSignInAt": Date(),
+                                                                     "appVersion": appVersion])
                             UserDefaults.standard.totalDownloads = currentCount + variationFactor
                         } else {
                             let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
